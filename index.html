@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GOCUTZ BARBERSHOP | Bandar Seri Alam</title>
+
+  <meta name="description" content="GOCUTZ Barbershop — premium barber experience in Bandar Seri Alam, Masai, Johor.">
+  <meta name="theme-color" content="#0b0b0b">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #090909;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5,5,5,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #d4af37;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      border-radius: 4px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.82)),
+        url("https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      padding-top: 70px;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: #d4af37;
+      letter-spacing: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      color: #d0d0d0;
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn-gold {
+      background: #d4af37;
+      color: #090909;
+    }
+
+    .btn-gold:hover {
+      background: #f0ce5a;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #777;
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title small {
+      color: #d4af37;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: #999;
+      margin-top: 10px;
+    }
+
+    /* SERVICES */
+    .services {
+      background: #101010;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      border: 1px solid #252525;
+      padding: 30px;
+      background: #0b0b0b;
+      transition: 0.25s;
+    }
+
+    .service:hover {
+      border-color: #d4af37;
+      transform: translateY(-4px);
+    }
+
+    .service h3 {
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 450px;
+      background:
+        linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.3)),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+    }
+
+    .about-text h2 {
+      font-size: 45px;
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 span {
+      color: #d4af37;
+    }
+
+    .about-text p {
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    /* BARBERS */
+    .barbers {
+      background: #101010;
+    }
+
+    .barber-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .barber {
+      border: 1px solid #252525;
+      background: #090909;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .barber-avatar {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #181818;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4af37;
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .barber h3 {
+      font-size: 22px;
+    }
+
+    .barber p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #181818;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+        url("https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .cta h2 {
+      font-size: clamp(38px, 6vw, 65px);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #101010;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .contact-box {
+      border: 1px solid #292929;
+      padding: 30px;
+    }
+
+    .contact-box h3 {
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: #aaa;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 35px 0;
+      text-align: center;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #d4af37;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero-content {
+        padding-top: 90px;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .service-grid,
+      .barber-grid,
+      .gallery-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .about-image {
+        min-height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">GOCUTZ</div>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#barbers">Barbers</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="nav-button"
+         href="https://wa.me/601117527698">
+        BOOK
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Bandar Seri Alam · Johor
+        </div>
+
+        <h1>
+          LOOK<br>
+          <span>SHARP.</span>
+        </h1>
+
+        <p>
+          Premium barber experience for men who care about
+          their style, confidence and appearance.
+        </p>
+
+        <div class="buttons">
+
+          <a class="btn btn-gold"
+             href="https://wa.me/601117527698">
+            BOOK YOUR CUT
+          </a>
+
+          <a class="btn btn-outline"
+             href="#services">
+            VIEW SERVICES
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>What We Do</small>
+        <h2>OUR SERVICES</h2>
+        <p>Quality cuts. Clean finish. Good experience.</p>
+      </div>
+
+      <div class="service-grid">
+
+        <div class="service">
+          <h3>Haircut</h3>
+          <p>
+            Professional haircut tailored to your style.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Fade</h3>
+          <p>
+            Clean fades with attention to detail.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Haircut + Wash</h3>
+          <p>
+            Complete grooming experience from cut to finish.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Colour</h3>
+          <p>
+            Professional hair colour service.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Perm</h3>
+          <p>
+            Modern styling and texture services.
+          </p>
+        </div>
+
+        <div class="service">
+          <h3>Treatment</h3>
+          <p>
+            Hair care and treatment services.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+          <div class="eyebrow">
+            About GOCUTZ
+          </div>
+
+          <h2>
+            MORE THAN<br>
+            JUST A <span>HAIRCUT.</span>
+          </h2>
+
+          <p>
+            GOCUTZ Barbershop is a local barbershop based in
+            Bandar Seri Alam, Masai, Johor.
+          </p>
+
+          <p>
+            Our goal is simple — give every customer a clean,
+            confident look and a barber experience worth coming back for.
+          </p>
+
+          <a class="btn btn-outline" href="#contact">
+            FIND US
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BARBERS -->
+  <section id="barbers" class="barbers">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>The Team</small>
+        <h2>OUR BARBERS</h2>
+        <p>Meet the people behind the chair.</p>
+      </div>
+
+      <div class="barber-grid">
+
+        <div class="barber">
+          <div class="barber-avatar">A</div>
+          <h3>Amy</h3>
+          <p>Barber · Chemical Specialist</p>
+        </div>
+
+        <div class="barber">
+          <div class="barber-avatar">I</div>
+          <h3>Iman</h3>
+          <p>Barber</p>
+        </div>
+
+        <div class="barber">
+          <div class="barber-avatar">Z</div>
+          <h3>Zul</h3>
+          <p>Barber</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+  <section id="gallery">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Inside GOCUTZ</small>
+        <h2>THE SHOP</h2>
+        <p>A look inside the GOCUTZ experience.</p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=85">
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=85">
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=85">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>READY FOR YOUR NEXT CUT?</h2>
+
+      <p>
+        Come through to GOCUTZ Barbershop, Bandar Seri Alam.
+      </p>
+
+      <a class="btn btn-gold"
+         href="https://wa.me/601117527698">
+        WHATSAPP GOCUTZ
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+        <small>Visit Us</small>
+        <h2>GOCUTZ BARBERSHOP</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-box">
+
+          <h3>LOCATION</h3>
+
+          <p>
+            Bandar Seri Alam<br>
+            Masai, Johor
+          </p>
+
+        </div>
+
+        <div class="contact-box">
+
+          <h3>BOOKING</h3>
+
+          <p>
+            WhatsApp: 011-1752 7698
+          </p>
+
+          <br>
+
+          <a class="btn btn-gold"
+             href="https://wa.me/601117527698">
+            BOOK NOW
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      © 2026 <strong>GOCUTZ BARBERSHOP</strong>.
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
